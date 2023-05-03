@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Base from "../Base/Base";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Students({ students, setStudents }) {
@@ -33,7 +33,6 @@ export default function Students({ students, setStudents }) {
         box.style.display = "none";
       }
     }
-    console.log(boxes.length);
   };
   return (
     <Base

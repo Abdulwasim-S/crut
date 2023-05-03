@@ -24,7 +24,8 @@ export default function UpdateStudents({students, setStudents}) {
             name : name,
             batch : batch,
             gender: gender,
-            qualification :qualification
+            qualification :qualification,
+            id:id
          }
      const response = await fetch(`https://644b33c517e2663b9deab9c8.mockapi.io/users/${editStudent.id}`, {
       method:"PUT",
@@ -36,7 +37,6 @@ export default function UpdateStudents({students, setStudents}) {
 
      const data = await response.json()
      if(data){
-         console.log(updatedObject)
          students[id] = updatedObject
          setStudents([...students])
          history.push("/students")

@@ -1,6 +1,5 @@
 import "../App.css";
 import React from "react";
-import { NavLink } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Base({ title, description, children }) {
