@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Base from "../Base/Base";
+
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Students({ students, setStudents }) {
@@ -22,22 +23,33 @@ export default function Students({ students, setStudents }) {
     }
     
   };
-  
+  const searchFilter = (filterKey) => {
+    var boxes = document.getElementsByClassName("student-data-card");
+    for (var i = 0; i < boxes.length; i++) {
+      var box = boxes[i];
+      if ((box.id).includes(filterKey)) {
+        box.style.display = "block";
+      } else {
+        box.style.display = "none";
+      }
+    }
+    console.log(boxes.length);
+  };
   return (
     <Base
       title={"Students DashBoard"}
       description={"This page contains all students data"}
     >
-      
+      <input className="form-control" placeholder="Search..." type="text" onChange={(e)=>searchFilter(e.target.value)}/>
       <div className="container">
         <div className="row d-flex justify-content-around" id="row">
           {students.map((stud, idx) => (
             <div
-              className="student-data-card col-sm-6 col-md-4 col-lg-3 border border-secondary shadow rounded m-3 p-3 h-100"
+              className="card-body student-data-card col-sm-6 col-md-4 col-lg-3 border border-secondary shadow rounded m-3 p-3 h-100"
               id={(stud.name +stud.batch +stud.gender +stud.qualification).toLowerCase()}
               key={idx}
             >
-              <div className="content">
+              <div className="content ">
                 <h3>{stud.name}</h3>
                 <p>
                   <span className="text-muted">Batch - </span>
