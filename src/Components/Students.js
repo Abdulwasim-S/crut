@@ -45,7 +45,7 @@ export default function Students({ students, setStudents }) {
           {students.map((stud, idx) => (
             <div
               className="card-body student-data-card col-sm-6 col-md-4 col-lg-3 border border-secondary shadow rounded m-3 p-3 h-100"
-              id={(stud.name +stud.batch +stud.gender +stud.qualification).toLowerCase()}
+              id={(stud.name+"-" +stud.batch+"-" +stud.gender+"-" +stud.qualification).toLowerCase()}
               key={idx}
             >
               <div className="content ">
